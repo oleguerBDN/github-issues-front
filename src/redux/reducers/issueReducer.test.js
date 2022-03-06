@@ -1,6 +1,7 @@
 import {
   cleanIssueAction,
   errorIssueAction,
+  loadCommentsAction,
   loadIssueAction,
 } from "../actions/actionCreators";
 import issueReducer from "./issueReducer";
@@ -58,6 +59,17 @@ describe("Given a issueReducer", () => {
 
       expect(newIssue).toHaveProperty("isError", false);
       expect(newIssue).toEqual({ ...issue, isError: false });
+    });
+  });
+
+  describe("When it receives an action type loadComments and the comments object", () => {
+    test("Then it should return the existing issue with new comments", () => {
+      const comments = { comments: "Testing" };
+      const action = loadCommentsAction(comments);
+
+      const newIssue = issueReducer(issue, action);
+
+      expect(newIssue).toEqual({ ...issue, comments });
     });
   });
 });
