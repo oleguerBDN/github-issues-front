@@ -1,7 +1,15 @@
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
+import IssuesPage from "./pages/IssuesPage";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <IssuesPage />
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;
