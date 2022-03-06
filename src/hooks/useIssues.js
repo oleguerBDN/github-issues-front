@@ -1,6 +1,5 @@
 import { useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loadIssuesThunk } from "../redux/thunks/issuesThunks";
 
 const useIssues = () => {
