@@ -5,14 +5,11 @@ import { errorIssuesAction, loadIssuesAction } from "../actions/actionCreators";
 export const loadIssuesThunk =
   (params, startCursor, endCursor) => async (dispatch) => {
     try {
-      console.log("Start-->" + startCursor);
-      console.log("End  -->" + endCursor);
       const variables = JSON.stringify({
         searchQuery: getSearchQuery(params),
         startCursor,
         endCursor,
       });
-      console.log(variables);
       const {
         data: {
           data: { search },
