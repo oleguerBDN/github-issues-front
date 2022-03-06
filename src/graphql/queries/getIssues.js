@@ -1,6 +1,6 @@
 const getIssues = `#graphql
-query GetIssues($searchQuery:String!){
-    search(query:$searchQuery , type: ISSUE, first:20 ) {
+query GetIssues($searchQuery:String!, $startCursor:String, $endCursor:String){
+    search(query:$searchQuery , type: ISSUE, last:20, before:$startCursor, after:$endCursor ) {
     pageInfo {
       hasPreviousPage
       hasNextPage

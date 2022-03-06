@@ -11,7 +11,7 @@ const IssuesPage = () => {
   const [search, setSearch] = useSearchParams();
 
   const onSubmitForm = (formData) => {
-    setSearch(formData);
+    setSearch(formData.searchText ? formData : { status: formData.status });
     loadIssues(formData);
   };
 
@@ -32,11 +32,11 @@ const IssuesPage = () => {
   };
 
   const onClickPrevious = () => {
-    console.log("Previous clicked");
+    loadIssues(existingFormData, issues.pageInfo.startCursor, null);
   };
 
   const onClickNext = () => {
-    console.log("Next clicked");
+    loadIssues(existingFormData, null, issues.pageInfo.endCursor);
   };
 
   return (
