@@ -16,6 +16,9 @@ const issueReducer = (issue = {}, action) => {
     case actionTypes.cleanIssue:
       newIssue = { isError: false };
       break;
+    case actionTypes.loadComments:
+      newIssue = { ...issue, comments: action.comments };
+      break;
     default:
       newIssue = { ...issue, isError: false };
       break;
