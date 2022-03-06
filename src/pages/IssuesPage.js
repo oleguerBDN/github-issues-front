@@ -32,11 +32,11 @@ const IssuesPage = () => {
   };
 
   const onClickPrevious = () => {
-    console.log("Previous clicked");
+    loadIssues(existingFormData, issues.pageInfo.startCursor, null);
   };
 
   const onClickNext = () => {
-    console.log("Next clicked");
+    loadIssues(existingFormData, null, issues.pageInfo.endCursor);
   };
 
   return (

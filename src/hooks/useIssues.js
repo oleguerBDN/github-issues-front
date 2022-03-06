@@ -6,8 +6,8 @@ const useIssues = () => {
   const dispatch = useDispatch();
   const issues = useSelector((store) => store.issues);
   const loadIssues = useCallback(
-    (params) => {
-      dispatch(loadIssuesThunk(params));
+    (params, startCursor = null, endCursor = null) => {
+      dispatch(loadIssuesThunk(params, startCursor, endCursor));
     },
     [dispatch]
   );
