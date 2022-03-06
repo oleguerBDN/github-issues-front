@@ -11,7 +11,7 @@ const IssuesPage = () => {
   const [search, setSearch] = useSearchParams();
 
   const onSubmitForm = (formData) => {
-    setSearch(formData);
+    setSearch(formData.searchText ? formData : { status: formData.status });
     loadIssues(formData);
   };
 
