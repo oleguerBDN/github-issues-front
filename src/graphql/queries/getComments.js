@@ -1,8 +1,8 @@
 const getComments = `#graphql
-query($id: ID!, $startCursor:String, $endCursor:String) {
-  node(id: $id) {
+query($issueId: ID!, $startCursor:String, $endCursor:String, $first:Int, $last:Int ) {
+  node(id: $issueId) {
    ... on Issue {
-    comments (first:5,  before:$startCursor, after:$endCursor){
+    comments (first:$first, last:$last,  before:$startCursor, after:$endCursor){
       pageInfo{
         endCursor,
         startCursor, 
