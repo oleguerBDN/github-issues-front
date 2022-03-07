@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Comment from "../components/Comment/Comment";
 import Issue from "../components/Issue/Issue";
 import Pagination from "../components/Pagination/Pagination";
@@ -8,6 +8,7 @@ import useIssue from "../hooks/useIssue";
 const IssueDetailPage = () => {
   const { issue, loadIssue, cleanIssue, loadComments } = useIssue();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const cleanUp = () => cleanIssue();
@@ -22,6 +23,10 @@ const IssueDetailPage = () => {
 
   const onClickNextComment = () => {
     loadComments(id, null, issue.comments.pageInfo.endCursor);
+  };
+
+  const goBack = () => {
+    navigate(-1);
   };
 
   return (
@@ -59,6 +64,7 @@ const IssueDetailPage = () => {
           pageInfo={issue.comments.pageInfo}
         />
       )}
+      <button onClick={goBack}>Back to list</button>
     </>
   );
 };
