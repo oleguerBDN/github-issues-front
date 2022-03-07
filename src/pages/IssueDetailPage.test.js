@@ -1,4 +1,5 @@
 import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 import renderWithProviders from "../mocks/renderWithProviders";
 import { server } from "../mocks/server";
@@ -65,6 +66,45 @@ describe("Given a IssueDetailPage", () => {
       expect(thirdComment).toBeInTheDocument();
       expect(fourthComment).toBeInTheDocument();
       expect(fifthComment).toBeInTheDocument();
+    });
+  });
+  describe("When it's called and next pagination button clicked", () => {
+    test("Then it should render the new comments", async () => {
+      const expectedFirstComment = "comment next 1";
+
+      renderWithProviders(
+        <BrowserRouter>
+          <IssueDetailPage />
+        </BrowserRouter>
+      );
+
+      const nextButton = await screen.findByRole("button", { name: "Next" });
+      await userEvent.click(nextButton);
+
+      const firstComment = await screen.findByText(expectedFirstComment);
+
+      expect(firstComment).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's called and previous pagination button clicked", () => {
+    test("Then it should render the new comments", async () => {
+      const expectedFirstComment = "comment previous 1";
+
+      renderWithProviders(
+        <BrowserRouter>
+          <IssueDetailPage />
+        </BrowserRouter>
+      );
+
+      const previousButton = await screen.findByRole("button", {
+        name: "Previous",
+      });
+      await userEvent.click(previousButton);
+
+      const firstComment = await screen.findByText(expectedFirstComment);
+
+      expect(firstComment).toBeInTheDocument();
     });
   });
 });

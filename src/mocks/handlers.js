@@ -172,6 +172,70 @@ export const handlers = [
   }),
 
   graphql.query("GetComments", (req, res, ctx) => {
+    if (
+      !req.body.variables.includes('"startCursor":null,') &&
+      req.body.variables.includes('"endCursor":null')
+    ) {
+      return res(
+        ctx.data({
+          node: {
+            comments: {
+              pageInfo: {
+                endCursor: "Y3Vyc29yOnYyOpHOFMGorQ==",
+                startCursor: "Y3Vyc29yOnYyOpHOFJdh4w==",
+                hasNextPage: true,
+                hasPreviousPage: true,
+              },
+              edges: [
+                {
+                  node: {
+                    id: "MDEyOklzc3VlQ29tbWVudDM0NTQ2NTMxNQ==",
+                    author: {
+                      login: "gaearon",
+                      url: "https://github.com/gaearon",
+                    },
+                    bodyHTML: "<p>comment previous 1</p>",
+                  },
+                },
+              ],
+            },
+          },
+        })
+      );
+    }
+
+    if (
+      req.body.variables.includes('"startCursor":null,') &&
+      !req.body.variables.includes('"endCursor":null')
+    ) {
+      return res(
+        ctx.data({
+          node: {
+            comments: {
+              pageInfo: {
+                endCursor: "Y3Vyc29yOnYyOpHOFMGorQ==",
+                startCursor: "Y3Vyc29yOnYyOpHOFJdh4w==",
+                hasNextPage: true,
+                hasPreviousPage: true,
+              },
+              edges: [
+                {
+                  node: {
+                    id: "MDEyOklzc3VlQ29tbWVudDM0NTQ2NTMxNQ==",
+                    author: {
+                      login: "gaearon",
+                      url: "https://github.com/gaearon",
+                    },
+                    bodyHTML: "<p>comment next 1</p>",
+                  },
+                },
+              ],
+            },
+          },
+        })
+      );
+    }
+
     return res(
       ctx.data({
         node: {
@@ -180,7 +244,7 @@ export const handlers = [
               endCursor: "Y3Vyc29yOnYyOpHOFMGorQ==",
               startCursor: "Y3Vyc29yOnYyOpHOFJdh4w==",
               hasNextPage: true,
-              hasPreviousPage: false,
+              hasPreviousPage: true,
             },
             edges: [
               {
