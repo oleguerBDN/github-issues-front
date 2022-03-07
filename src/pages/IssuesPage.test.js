@@ -1,12 +1,9 @@
 import { screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import renderWithProviders from "../mocks/renderWithProviders";
+import { server } from "../mocks/server";
 import IssuesPage from "./IssuesPage";
 
-import { setupServer } from "msw/node";
-import { handlers } from "../mocks/handlers";
-
-const server = setupServer(...handlers);
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
