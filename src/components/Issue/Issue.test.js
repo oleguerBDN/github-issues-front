@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Issue from "./Issue";
+import ReactTestRenderer from "react-test-renderer";
 
 describe("Given a Issue component", () => {
   describe("When it's called a title and author", () => {
@@ -29,6 +30,28 @@ describe("Given a Issue component", () => {
       });
 
       expect(htmlBodyHeading).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's called with all the props", () => {
+    test("Then it should render an Issue matching the snapshot", () => {
+      const title = "Just a title for testing";
+      const author = "Karim";
+      const authorUrl = "https://www.karim.com";
+      const state = "CLOSED";
+      const htmlBody = "<p>Just an html body, nothing different</p>";
+
+      const issue = ReactTestRenderer.create(
+        <Issue
+          title={title}
+          author={author}
+          authorUrl={authorUrl}
+          state={state}
+          body={htmlBody}
+        />
+      );
+
+      expect(issue.toJSON()).toMatchSnapshot();
     });
   });
 });
