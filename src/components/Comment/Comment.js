@@ -1,3 +1,5 @@
+import dompurify from "dompurify";
+
 const Comment = ({ id, body, author, authorUrl }) => {
   return (
     <div className="comment">
@@ -5,7 +7,7 @@ const Comment = ({ id, body, author, authorUrl }) => {
         {author}
       </a>
       <div className="markdown-body">
-        <div dangerouslySetInnerHTML={{ __html: body }} />
+        <div dangerouslySetInnerHTML={{ __html: dompurify.sanitize(body) }} />
       </div>
     </div>
   );
