@@ -2,7 +2,6 @@ import { graphql } from "msw";
 
 export const handlers = [
   graphql.query("GetIssues", (req, res, ctx) => {
-    console.log("inside de handler!");
     return res(
       ctx.data({
         search: {
