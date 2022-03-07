@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Issue component When it's called with all the props Then it should render an Issue matching the snapshot 1`] = `
+<div
+  className="issue"
+>
+  <h2
+    className="issue__title"
+  >
+    Just a title for testing
+  </h2>
+  <span
+    className="issue__state"
+  >
+    CLOSED
+  </span>
+  <a
+    className="issue__author"
+    href="https://www.karim.com"
+  >
+    Karim
+  </a>
+  <div
+    className="markdown-body"
+  >
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>Just an html body, nothing different</p>",
+        }
+      }
+    />
+  </div>
+</div>
+`;
