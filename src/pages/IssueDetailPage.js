@@ -42,14 +42,16 @@ const IssueDetailPage = () => {
       {!issue.isError &&
         issue.title &&
         issue.comments &&
-        issue.comments.edges.map(({ node: { id, author, bodyHTML } }) => (
-          <Comment
-            key={id}
-            body={bodyHTML}
-            author={author?.login}
-            authorUrl={author?.url}
-          />
-        ))}
+        issue.comments.edges.map(
+          ({ node: { id: commentId, author, bodyHTML } }) => (
+            <Comment
+              key={commentId}
+              body={bodyHTML}
+              author={author?.login}
+              authorUrl={author?.url}
+            />
+          )
+        )}
       {issue?.comments && (
         <Pagination
           onClickNext={onClickNextComment}
