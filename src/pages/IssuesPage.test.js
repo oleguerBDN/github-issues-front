@@ -27,7 +27,7 @@ describe("Given a IssuesPage", () => {
     });
   });
   describe("When it's called and waiting for api response", () => {
-    test.only("Then it should render a list of issues", async () => {
+    test("Then it should render a list of issues", async () => {
       const expectedFirstIssueTitle =
         "React app works as intended in development mode, but in production mode has another behaviour.";
       const expectedSecondIssueTitle =
