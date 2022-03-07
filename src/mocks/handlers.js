@@ -155,4 +155,88 @@ export const handlers = [
       })
     );
   }),
+  graphql.query("GetIssue", (req, res, ctx) => {
+    return res(
+      ctx.data({
+        node: {
+          title: "React-test-renderer: support for portal",
+          state: "OPEN",
+          bodyHTML: "<p>html body</p>",
+          author: {
+            login: "alansouzati",
+            url: "https://github.com/alansouzati",
+          },
+        },
+      })
+    );
+  }),
+
+  graphql.query("GetComments", (req, res, ctx) => {
+    return res(
+      ctx.data({
+        node: {
+          comments: {
+            pageInfo: {
+              endCursor: "Y3Vyc29yOnYyOpHOFMGorQ==",
+              startCursor: "Y3Vyc29yOnYyOpHOFJdh4w==",
+              hasNextPage: true,
+              hasPreviousPage: false,
+            },
+            edges: [
+              {
+                node: {
+                  id: "MDEyOklzc3VlQ29tbWVudDM0NTQ2NTMxNQ==",
+                  author: {
+                    login: "gaearon",
+                    url: "https://github.com/gaearon",
+                  },
+                  bodyHTML: "<p>comment 1</p>",
+                },
+              },
+              {
+                node: {
+                  id: "MDEyOklzc3VlQ29tbWVudDM0NTc1MjY5NA==",
+                  author: {
+                    login: "505aaron",
+                    url: "https://github.com/505aaron",
+                  },
+                  bodyHTML: "<p>comment 2</p>",
+                },
+              },
+              {
+                node: {
+                  id: "MDEyOklzc3VlQ29tbWVudDM0NTg4NjA3Mg==",
+                  author: {
+                    login: "alansouzati",
+                    url: "https://github.com/alansouzati",
+                  },
+                  bodyHTML: "<p>comment 3</p>",
+                },
+              },
+              {
+                node: {
+                  id: "MDEyOklzc3VlQ29tbWVudDM0NjY0MzU4Nw==",
+                  author: {
+                    login: "esturcke",
+                    url: "https://github.com/esturcke",
+                  },
+                  bodyHTML: "<p>comment 4</p>",
+                },
+              },
+              {
+                node: {
+                  id: "MDEyOklzc3VlQ29tbWVudDM0ODIzNTk0OQ==",
+                  author: {
+                    login: "505aaron",
+                    url: "https://github.com/505aaron",
+                  },
+                  bodyHTML: "<p>comment 5</p>",
+                },
+              },
+            ],
+          },
+        },
+      })
+    );
+  }),
 ];
