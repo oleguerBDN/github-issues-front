@@ -159,9 +159,9 @@ export const handlers = [
     return res(
       ctx.data({
         node: {
-          title: "React-test-renderer: support for portal",
+          title: "Issue for testing",
           state: "OPEN",
-          bodyHTML: "<p>html body</p>",
+          bodyHTML: "<p>html body for testing</p>",
           author: {
             login: "alansouzati",
             url: "https://github.com/alansouzati",
