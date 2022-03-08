@@ -11,3 +11,15 @@
 a {
   color: inherit;
 }
+
+a:hover {
+  color: #7bb2ed;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 22px;
+}

@@ -3,7 +3,7 @@ import styles from "./Issue.module.css";
 
 const Issue = ({ title, body, state, author, authorUrl }) => (
   <div className={styles.issue}>
-    <h2 className={styles["issue__title"]}>{title}</h2>
+    <h1 className={styles["issue__title"]}>{title}</h1>
     <span
       className={
         state === "OPEN"

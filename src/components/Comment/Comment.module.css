@@ -8,13 +8,13 @@
 
 .comment__author {
   background-color: #161b22;
-  padding: 5px;
+  padding: 10px;
   border: 1px solid #c9d1d9;
   border-radius: 10px 10px 0 0;
 }
 
 .comment__body {
   background-color: #0d1117;
-  padding: 5px;
+  padding: 10px;
   border: 1px solid #c9d1d9;
 }
