@@ -23,3 +23,39 @@ h2 {
 h1 {
   font-size: 22px;
 }
+
+button {
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+button:hover {
+  background-color: #ff3;
+}
+
+input {
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+select {
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
