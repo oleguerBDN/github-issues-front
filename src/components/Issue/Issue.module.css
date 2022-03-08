@@ -1,0 +1,33 @@
+.issue {
+  display: flex;
+  flex-direction: column;
+  color: #c9d1d9;
+}
+
+.issue__title {
+  color: #161b22;
+}
+
+.issue__state--open {
+  color: #090;
+  font-weight: bolder;
+}
+
+.issue__state--closed {
+  color: #b30000;
+  font-weight: bolder;
+}
+
+.issue__author {
+  margin-top: 10px;
+  background-color: #161b22;
+  padding: 10px;
+  border: 1px solid #c9d1d9;
+  border-radius: 10px 10px 0 0;
+}
+
+.issue__body {
+  background-color: #0d1117;
+  padding: 10px;
+  border: 1px solid #c9d1d9;
+}

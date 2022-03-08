@@ -1,12 +1,12 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import "./App.css";
 import IssueDetailPage from "./pages/IssueDetailPage";
 import IssuesPage from "./pages/IssuesPage";
+import styles from "./App.module.css";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className={"App " + styles.container}>
         <Routes>
           <Route path="/issues" element={<IssuesPage />} />
           <Route path="/issue/:id" element={<IssueDetailPage />} />

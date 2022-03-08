@@ -23,6 +23,7 @@ const Form = ({ onSubmit, existingFormData }) => {
       <input
         type="text"
         id="searchText"
+        placeholder="text to search.."
         value={formData.searchText}
         onChange={handleOnChange}
       />

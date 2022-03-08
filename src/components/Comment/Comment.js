@@ -1,12 +1,13 @@
 import dompurify from "dompurify";
+import styles from "./Comment.module.css";
 
 const Comment = ({ id, body, author, authorUrl }) => {
   return (
-    <div className="comment">
-      <a className="comment__author" href={authorUrl}>
+    <div className={styles.comment}>
+      <a className={styles["comment__author"]} href={authorUrl}>
         {author}
       </a>
-      <div className="markdown-body">
+      <div className={"markdown-body " + styles["comment__body"]}>
         <div dangerouslySetInnerHTML={{ __html: dompurify.sanitize(body) }} />
       </div>
     </div>

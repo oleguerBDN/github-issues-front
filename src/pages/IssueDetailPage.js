@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Comment from "../components/Comment/Comment";
 import Issue from "../components/Issue/Issue";
@@ -9,6 +9,9 @@ const IssueDetailPage = () => {
   const { issue, loadIssue, cleanIssue, loadComments } = useIssue();
   const { id } = useParams();
   const navigate = useNavigate();
+  const scrollHere = useRef(null);
+
+  const executeScroll = () => scrollHere.current.scrollIntoView();
 
   useEffect(() => {
     const cleanUp = () => cleanIssue();
@@ -19,10 +22,12 @@ const IssueDetailPage = () => {
 
   const onClickPreviousComment = () => {
     loadComments(id, issue.comments.pageInfo.startCursor, null);
+    executeScroll();
   };
 
   const onClickNextComment = () => {
     loadComments(id, null, issue.comments.pageInfo.endCursor);
+    executeScroll();
   };
 
   const goBack = () => {
@@ -44,6 +49,7 @@ const IssueDetailPage = () => {
       ) : (
         <p>LOADING...</p>
       )}
+      <span ref={scrollHere} />
       {!issue.isError &&
         issue.title &&
         issue.comments &&
