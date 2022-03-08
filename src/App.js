@@ -1,5 +1,4 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import "./App.css";
 import IssueDetailPage from "./pages/IssueDetailPage";
 import IssuesPage from "./pages/IssuesPage";
 
