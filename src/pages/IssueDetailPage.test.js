@@ -48,6 +48,7 @@ describe("Given a IssueDetailPage", () => {
       const expectedThirdComment = "comment 3";
       const expectedFourthComment = "comment 4";
       const expectedFifthComment = "comment 5";
+      window.HTMLElement.prototype.scrollIntoView = function () {};
 
       renderWithProviders(
         <BrowserRouter>
@@ -71,6 +72,7 @@ describe("Given a IssueDetailPage", () => {
   describe("When it's called and next pagination button clicked", () => {
     test("Then it should render the new comments", async () => {
       const expectedFirstComment = "comment next 1";
+      window.HTMLElement.prototype.scrollIntoView = function () {};
 
       renderWithProviders(
         <BrowserRouter>
@@ -90,6 +92,7 @@ describe("Given a IssueDetailPage", () => {
   describe("When it's called and previous pagination button clicked", () => {
     test("Then it should render the new comments", async () => {
       const expectedFirstComment = "comment previous 1";
+      window.HTMLElement.prototype.scrollIntoView = function () {};
 
       renderWithProviders(
         <BrowserRouter>
