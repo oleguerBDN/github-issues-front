@@ -4,13 +4,13 @@ exports[`Given a Issue component When it's called with all the props Then it sho
 <div
   className="issue"
 >
-  <h2
+  <h1
     className="issue__title"
   >
     Just a title for testing
-  </h2>
+  </h1>
   <span
-    className="issue__state"
+    className="issue__state--closed"
   >
     CLOSED
   </span>
@@ -21,7 +21,7 @@ exports[`Given a Issue component When it's called with all the props Then it sho
     Karim
   </a>
   <div
-    className="markdown-body"
+    className="markdown-body issue__body"
   >
     <div
       dangerouslySetInnerHTML={
